@@ -17,12 +17,12 @@ class CitizenService {
         return http.delete('/citizens');
     }
 
-    enterCitizen(id) {
-        return http.get('/guards/${id}');
+    enterCitizen(citizenInfo) {
+        return http.get(`/guards/${citizenInfo.id}`);
     }
 
-    alertGuard(id, data) {
-        return http.put(`/citizens/${id}`, data);
+    updateCitizen(citizenInfo) {
+        return http.put(`/citizens/${citizenInfo.id}`, citizenInfo);
     }
 
     exitCitizen(id) {

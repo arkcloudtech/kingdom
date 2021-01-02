@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import CitizenService from "../services/citizen.service";
 
-export default class ManageMainGatePassage extends Component {
+export default class MainGatePassage extends Component {
     constructor(props) {
         super(props);
-        this.grantCitizenship = this.onGrantCitizenship.bind(this);
+        this.grantCitizenship = this.grantCitizenship.bind(this);
         this.requestEntry = this.requestEntry.bind(this);
         this.onCitizenTitleChange = this.onCitizenTitleChange.bind(this);
         this.onCitizenSecretChange = this.onCitizenSecretChange.bind(this);
@@ -59,21 +59,22 @@ export default class ManageMainGatePassage extends Component {
 
     onCitizenTitleChange(e) {
         this.setState({
+          ...this.state,
             citizenInfo: {
+              ...this.state.citizenInfo,
                 title: e.target.value,
-                ...this.state,
             },
-            ...this.state
+            
         });
     }
 
     onCitizenSecretChange(e) {
         this.setState({
+          ...this.state,
             citizenInfo: {
+              ...this.state.citizenInfo,
                 secret: e.target.value,
-                ...this.state,
             },
-            ...this.state
         });
     }
 
@@ -83,7 +84,7 @@ export default class ManageMainGatePassage extends Component {
             {this.state.submitted ? (
               <div>
                 <h4>The kingdom has a new citizen!</h4>
-                <h2>Welcome{citizenInfo.title}</h2>
+                <h2>Welcome{this.citizenInfo.title}</h2>
               </div>
             ) : (
               <div>

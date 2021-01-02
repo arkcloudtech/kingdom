@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import KingsGuardService from "../services/kings-guard.service";
 
-export default class AddKingsGuard extends Component {
+export default class CreateKingsGuard extends Component {
     constructor(props) {
         super(props);
-        this.onCreateGuard = this.onCreateGuard.bind(this);
+        this.createGuard = this.createGuard.bind(this);
         this.onChangeTitle = this.onChangeTitle.bind(this);
-        this.onActivate = this.onActivate.bind(this);
-        this.onDeactivate = thids.onDeactivate.bind(this);
+        this.activate = this.activate.bind(this);
+        this.deactivate = this.deactivate.bind(this);
         this.alertGuard = this.alertGuard.bind(this);
 
         this.state = {
@@ -20,7 +20,7 @@ export default class AddKingsGuard extends Component {
         }
     }
 
-    onCreateGuard() {
+    createGuard() {
         var data = {
             title: this.state.title,
             command: this.state.command
@@ -49,11 +49,11 @@ export default class AddKingsGuard extends Component {
         });
     }
 
-    onActivate() {
+    activate(id) {
         KingsGuardService.activateGuard(id);
     }
 
-    onDeactivate(id) {
+    deactivate(id) {
         KingsGuardService.deactivateGuard(id);
     }
 

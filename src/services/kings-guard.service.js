@@ -18,7 +18,7 @@ class KingsGuardService {
     }
 
     activateGuard(id) {
-        return http.get('/guards/${id}');
+        return http.get(`/guards/${id}`);
     }
 
     alertGuard(id, data) {
@@ -26,7 +26,7 @@ class KingsGuardService {
     }
 
     deactivateGuard(id) {
-        return http.put(`/guards/${id}`, data);
+        return http.put(`/guards/deactivate/${id}`);
     }
 
     deactivateAll() {
